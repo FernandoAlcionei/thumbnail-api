@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  company-api:
+    image: node:20-alpine
+    container_name: company-api
+    working_dir: /home/node/app
+    volumes:
+      - .:/home/node/app
+    ports:
+      - 3001:3001
+    command: >
+      sh -c "cd /home/node/app && rm -rf node_modules || true && npm install && npm start"
